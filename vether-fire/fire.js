@@ -47,6 +47,13 @@ var Fire = /** @class */ (function () {
         this.started = false;
         this.animationId = null;
     };
+    Fire.prototype.b00mf = function () {
+        for (var i = 0; i < 100; i++) {
+            var x = this.FIRE_WIDTH / 2 + this.randomInt(-8, 8);
+            var y = this.FIRE_HEIGHT - 8 + this.randomInt(-16, 4);
+            this.fire[y][x] = 0;
+        }
+    };
     Fire.prototype.initColors = function () {
         this.canvas.hidden = true;
         this.canvas.width = this.NUM_COLORS;

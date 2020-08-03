@@ -59,6 +59,14 @@ class Fire {
     this.animationId = null;
   }
 
+  b00mf() {
+    for (var i=0; i<100; i++) {
+      let x = this.FIRE_WIDTH / 2 + this.randomInt(-8, 8);
+      let y = this.FIRE_HEIGHT - 8 + this.randomInt(-16, 4);
+      this.fire[y][x] = 0;
+    }
+  }
+
   initColors() {
     this.canvas.hidden = true;
     this.canvas.width = this.NUM_COLORS;
