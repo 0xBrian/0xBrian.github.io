@@ -1,0 +1,7 @@
+body {
+  background: #112;
+  color: #ccf;
+}
+#fireCanvas {
+  border: 2px dashed tomato;
+}

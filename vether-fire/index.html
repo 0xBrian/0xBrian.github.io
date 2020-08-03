@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang=en>
+  <head>
+    <meta charset=utf-8>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <pre>hit a key to start/stop</pre>
+    <canvas id="fireCanvas"></canvas>
+    <script src="fire.js"></script>
+    <script>
+      let fireCanvas = document.getElementById("fireCanvas");
+      let fire = new Fire(fireCanvas, {
+        backgroundColor: "#000000",
+        scale: 16,
+        colorStopSetName: "purple"
+      });
+      window.addEventListener("keypress", function () {
+        if (fire.started)
+          fire.stop();
+        else
+          fire.start();
+      });
+    </script>
+  </body>
+</html>
