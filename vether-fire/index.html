@@ -5,7 +5,7 @@
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
-    <pre>hit a key to start/stop, b to b00mf</pre>
+    <pre><em>[s]</em> to start/stop, <em>[b]</em> to b00mf</pre>
     <canvas id="fireCanvas"></canvas>
     <script src="fire.js"></script>
     <script>
@@ -15,13 +15,17 @@
         scale: 16,
         colorStopSetName: "purple"
       });
+      fire.start();
       window.addEventListener("keydown", function (e) {
-        if (fire.started && e.code == 'KeyB')
+        if (e.code == 'KeyB') {
           fire.b00mf();
-        else if (fire.started)
-          fire.stop();
-        else
-          fire.start();
+        } else if (e.code == 'KeyS') {
+          if (fire.started) {
+            fire.stop();
+          } else {
+            fire.start();
+          }
+        }
       });
     </script>
   </body>
