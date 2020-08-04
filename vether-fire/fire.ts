@@ -10,8 +10,8 @@ class Fire {
   }
 
   NUM_COLORS = 16;
-  FIRE_HEIGHT = 50;
-  FIRE_WIDTH = 50;
+  FIRE_HEIGHT = 60;
+  FIRE_WIDTH = 40;
 
   DEFAULT_SCALE = 4;
   DEFAULT_BACKGROUND_COLOR = "#000000";
@@ -147,8 +147,15 @@ class Fire {
     }
   }
 
+
   randomFlameAdvancement(): number {
-    return this.randomInt(0, 2);
+    // Make it slightly more likely to return 0 than 1 or 2. A little of this
+    // goes a very long way.
+    // `d = 0.05; [t+d, t+d + (t-d/2)]`
+    let r = Math.random();
+    if (r < 0.3833) return 0;
+    if (r < 0.6916) return 1;
+    else            return 2;
   }
 
   // Direction *from* which to draw inspiration when updating.

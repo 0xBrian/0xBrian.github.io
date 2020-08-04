@@ -15,8 +15,8 @@ var Fire = /** @class */ (function () {
             "purple": ["#ffffff", "#feebe2", "#fcc5c0", "#fa9fb5", "#f768a1", "#dd3497", "#ae017e", "#7a0177"]
         };
         this.NUM_COLORS = 16;
-        this.FIRE_HEIGHT = 50;
-        this.FIRE_WIDTH = 50;
+        this.FIRE_HEIGHT = 60;
+        this.FIRE_WIDTH = 40;
         this.DEFAULT_SCALE = 4;
         this.DEFAULT_BACKGROUND_COLOR = "#000000";
         this.DEFAULT_COLOR_STOP_SET_NAME = "purple";
@@ -138,7 +138,16 @@ var Fire = /** @class */ (function () {
         }
     };
     Fire.prototype.randomFlameAdvancement = function () {
-        return this.randomInt(0, 2);
+        // Make it slightly more likely to return 0 than 1 or 2. A little of this
+        // goes a very long way.
+        // `d = 0.05; [t+d, t+d + (t-d/2)]`
+        var r = Math.random();
+        if (r < 0.3833)
+            return 0;
+        if (r < 0.6916)
+            return 1;
+        else
+            return 2;
     };
     // Direction *from* which to draw inspiration when updating.
     Fire.prototype.randomDirection = function () {
