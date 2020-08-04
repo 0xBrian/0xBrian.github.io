@@ -16,7 +16,7 @@ var Fire = /** @class */ (function () {
         };
         this.NUM_COLORS = 16;
         this.FIRE_HEIGHT = 50;
-        this.FIRE_WIDTH = 30;
+        this.FIRE_WIDTH = 50;
         this.DEFAULT_SCALE = 4;
         this.DEFAULT_BACKGROUND_COLOR = "#000000";
         this.DEFAULT_COLOR_STOP_SET_NAME = "purple";
