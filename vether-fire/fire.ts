@@ -45,6 +45,7 @@ class Fire {
     this.initFire();
     this.startAnimation();
     this.started = true;
+    this.b00mf();
   }
 
   startAnimation() {

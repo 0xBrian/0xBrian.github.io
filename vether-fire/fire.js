@@ -35,6 +35,7 @@ var Fire = /** @class */ (function () {
         this.initFire();
         this.startAnimation();
         this.started = true;
+        this.b00mf();
     };
     Fire.prototype.startAnimation = function () {
         var _this = this;
