@@ -80,7 +80,6 @@
 					addPainting(scene, mesh);
 
 					function addPainting(zscene, zmesh) {
-
 						zmesh.scale.x = image.width / 100;
 						zmesh.scale.y = image.height / 100;
 
@@ -106,7 +105,19 @@
 				};
 
 				const texturePainting = new THREE.TextureLoader().load('frog.png', callbackPainting);
-				const materialPainting = new THREE.MeshBasicMaterial({ color: 0xffffff, map: texturePainting });
+			  const materialPainting = new THREE.MeshPhongMaterial({
+          color: 0xffffff,
+          map: texturePainting,
+          shininess: 200,
+          specular: 0x222222
+        });
+
+        scene.add(new THREE.AmbientLight(0xffffff));
+
+        const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
+        directionalLight.position.z = 200;
+        directionalLight.target.position.set(0, 0, 1);
+        scene.add(directionalLight);
 
 				texturePainting.colorSpace = THREE.SRGBColorSpace;
 				texturePainting.minFilter = texturePainting.magFilter = THREE.LinearFilter;
